@@ -215,11 +215,15 @@ async def get(auth, session):
         ) for name, description, product_id, price_amount in products
     ]
     
+    
+    
     ## extremely simple content filter
     PRODUCT_MAP = {
-        '0c02e9eb-cbb1-4015-898c-56022c11a9c3': 'static/assets/product1.jpg',
-        'f0908007-b3a1-4769-a176-7635afd90929': 'static/assets/product2.jpg',
+        # product_id
+        products[0][2]: 'static/assets/product1.jpg',
+        products[1][2]: 'static/assets/product2.jpg',
     }
+    
     if active_subscription:
         display = PRODUCT_MAP.get(active_subscription.product_id)
     else:
