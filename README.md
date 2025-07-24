@@ -6,6 +6,8 @@ This FastHTML project is a minimal scaffold for GoogleAuth + Polar.sh products. 
 
 After you've setup your .env file from the instructions below, run: `uv run --env-file .env polar-min-app.py` to start
 
+Use Stripe fake credit cards for purchasing: https://docs.stripe.com/testing
+
 ### User Flow
 
 1. **Google Authenticate**
@@ -24,6 +26,7 @@ After you've setup your .env file from the instructions below, run: `uv run --en
 - Creates checkout session with user_id (external_user_id to polar)
 - Once complete, return to `/success` route
 - Make sure `/success` isn't behind auth.. or polar won't be able to reach it (not sure this is being handled appropriately)
+
 
 ### Notes
 

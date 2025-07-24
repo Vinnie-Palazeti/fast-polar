@@ -215,8 +215,6 @@ async def get(auth, session):
         ) for name, description, product_id, price_amount in products
     ]
     
-    
-    
     ## extremely simple content filter
     PRODUCT_MAP = {
         # product_id
