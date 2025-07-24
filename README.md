@@ -52,7 +52,7 @@ After you've setup your .env file from the instructions below, run: `uv run --en
 
 1. Create Google Cloud Console account
 2. Go to Google Auth Clients section (https://console.cloud.google.com/auth/clients)
-3. Click: "+ Create client" → Select: "Web application" in Application Type dropdown → Fill in Authorized JavaScript Origin & Redirect URIs (See Example Image)
+3. Click: "+ Create client" → Select: "Web application" in Application Type dropdown → Fill in Authorized JavaScript Origin & Redirect URIs (See GoogleAuthClientRedirectExample.png in repo)
 4. Copy Client ID & Client Secret to add to your `.env` file (see below)
 
 ### Setup Polar Webhook (optional)
