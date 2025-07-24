@@ -1,0 +1,6 @@
+.env.local
+.venv
+/__pycache__
+*.db
+.sesskey
+.env
