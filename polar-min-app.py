@@ -59,6 +59,35 @@ os.environ['POLAR_SUCCESS_URL'] = f'{os.getenv("NGROK_ENDPOINT")}/success?checko
 def static(file_path: str, ext: str):
     return FileResponse(f"static/{file_path}.{ext}")
 
+
+@dataclass
+class Product:
+    id: str
+    name: str
+    description: int
+    
+def product_select(
+    products: List[Product],
+    group:str = 'product',
+    grid:str = 'grid w-full gap-6 md:grid-cols-2'
+    ):
+    # example: product_select([Product(name='0-50', description='Small Product', id='2341fads3'), Product(name='500-1000', description='Big Product', id='gjkn4312')])
+    return Ul(cls=grid)(
+        *[
+            Li(
+                Input(type='radio', id=p.id, name=group, value=p.id, required=True, cls='hidden peer'),
+                Label(fr=p.id, cls='inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600  peer-checked:text-blue-600 hover:text-blue-600 hover:bg-blue-100')(
+                    Div(cls='block')(
+                        Div(p.name, cls='w-full text-lg font-semibold'),
+                        Div(p.description, cls='w-full')
+                    )
+                )
+            )
+        for p in products
+        ]
+    )
+
+
 @rt('/')
 async def get(auth, session):
     auth = session.get('auth')
